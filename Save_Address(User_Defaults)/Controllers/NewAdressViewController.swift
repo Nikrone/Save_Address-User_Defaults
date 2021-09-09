@@ -28,11 +28,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cityField.text = defaults.string(forKey: KeysDefaults.keyCity)
-        streetField.text = defaults.string(forKey: KeysDefaults.keyStreet)
-        houseField.text = defaults.string(forKey: KeysDefaults.keyHouse)
-        buildField.text = defaults.string(forKey: KeysDefaults.keyBuild)
-        flatField.text = defaults.string(forKey: KeysDefaults.keyFlat )
+//        cityField.text = defaults.string(forKey: KeysDefaults.keyCity)
+//        streetField.text = defaults.string(forKey: KeysDefaults.keyStreet)
+//        houseField.text = defaults.string(forKey: KeysDefaults.keyHouse)
+//        buildField.text = defaults.string(forKey: KeysDefaults.keyBuild)
+//        flatField.text = defaults.string(forKey: KeysDefaults.keyFlat )
 
     }
     
@@ -44,11 +44,15 @@ class ViewController: UIViewController {
         let flat = flatField.text!
         
         if !city.isEmpty && !street.isEmpty && !house.isEmpty && !flat.isEmpty {
-            defaults.setValue(city, forKey: KeysDefaults.keyCity)
-            defaults.setValue(street, forKey: KeysDefaults.keyStreet)
-            defaults.setValue(house, forKey: KeysDefaults.keyHouse)
-            defaults.setValue(build, forKey: KeysDefaults.keyBuild)
-            defaults.setValue(flat, forKey: KeysDefaults.keyFlat)
+            
+            Base.shared.saveAdress(city: city, street: street, house: house, build: build, flat: flat)
+            self.navigationController?.popViewController(animated: true)
+            
+//            defaults.setValue(city, forKey: KeysDefaults.keyCity)
+//            defaults.setValue(street, forKey: KeysDefaults.keyStreet)
+//            defaults.setValue(house, forKey: KeysDefaults.keyHouse)
+//            defaults.setValue(build, forKey: KeysDefaults.keyBuild)
+//            defaults.setValue(flat, forKey: KeysDefaults.keyFlat)
             
         }
 
