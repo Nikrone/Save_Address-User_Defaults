@@ -10,6 +10,7 @@ import UIKit
 
 class Base {
     let defaults = UserDefaults.standard
+    
     static let shared = Base()
     struct UserAddress: Codable {
         var city: String
@@ -17,6 +18,7 @@ class Base {
         var house: String
         var build: String?
         var flat: String
+        
         var name: String {
             return "\(city), \(street), \(house), \(build ?? ""),\(flat)"
         }
@@ -25,7 +27,7 @@ class Base {
     var addresses: [UserAddress] {
         
         get {
-            if let  data = defaults.value(forKey: "adresses") as? Data {
+            if let  data = defaults.value(forKey: "addresses") as? Data {
                 return try! PropertyListDecoder().decode([UserAddress].self, from: data)
             } else {
                 return [UserAddress]()
@@ -34,12 +36,12 @@ class Base {
         set {
             
             if let data = try? PropertyListEncoder().encode(newValue) {
-                defaults.setValue(data, forKey: "addresses")
+                defaults.set(data, forKey: "addresses")
             }
         }
     }
     
-    func saveAdress(city: String, street:String, house: String, build: String?, flat: String) {
+    func saveAddress(city: String, street:String, house: String, build: String?, flat: String) {
         
         let address = UserAddress(city: city, street: street, house: house, build: build, flat: flat)
         addresses.insert(address, at: 0)

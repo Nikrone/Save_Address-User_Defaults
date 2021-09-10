@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         
         if !city.isEmpty && !street.isEmpty && !house.isEmpty && !flat.isEmpty {
             
-            Base.shared.saveAdress(city: city, street: street, house: house, build: build, flat: flat)
+            Base.shared.saveAddress(city: city, street: street, house: house, build: build, flat: flat)
             self.navigationController?.popViewController(animated: true)
             
 //            defaults.setValue(city, forKey: KeysDefaults.keyCity)
@@ -55,10 +55,6 @@ class ViewController: UIViewController {
 //            defaults.setValue(flat, forKey: KeysDefaults.keyFlat)
             
         }
-
-        
     }
-
-
 }
 

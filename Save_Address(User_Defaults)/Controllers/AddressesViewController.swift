@@ -24,6 +24,7 @@ class AddressesViewController: UIViewController {
     }
     
 }
+
 extension AddressesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
